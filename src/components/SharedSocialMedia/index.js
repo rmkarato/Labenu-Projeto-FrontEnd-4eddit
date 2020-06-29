@@ -10,7 +10,6 @@ import {
 import { SharedWrapper } from './styles'
 
 export default function SharedSocialMedia(props) {
-
     const { url } = props
 
     return (

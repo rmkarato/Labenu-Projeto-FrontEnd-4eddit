@@ -13,7 +13,7 @@ const posts = (state = initialState, action) => {
             return {
                 ...state,
                 allPosts: action.payload.posts,
-                filteredPosts: action.payload.posts // ATENÇÃO
+                filteredPosts: action.payload.posts 
             }
 
         case "SET_POST_DETAIL":
@@ -31,7 +31,7 @@ const posts = (state = initialState, action) => {
         case "SET_FILTERED_POSTS":
             return {
                 ...state,
-                filteredPosts: action.payload.posts // ATENÇÃO
+                filteredPosts: action.payload.posts
             }
 
         case "SET_INPUT_SEARCH":

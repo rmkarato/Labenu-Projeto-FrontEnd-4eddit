@@ -26,30 +26,18 @@ class Appbar extends Component {
 
   onChangeInputSearch = (e) => {
     this.setState({ inputSearchInAppBar: e.target.value })
-  }
-
-  onPressEnter = (e) => {
     const { allPosts, setFilteredPosts, setInputSearch } = this.props
     const { inputSearchInAppBar } = this.state
+    const searchData = allPosts.filter(post => {
+      const postText = post?.text?.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+      const postTitle = post?.title?.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+      const input = inputSearchInAppBar?.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+      return postText?.includes(input) || postTitle?.includes(input)
+    })
 
-    if (e.key === 'Enter') {
-      setInputSearch(inputSearchInAppBar)
+    setFilteredPosts(searchData)
+    setInputSearch(inputSearchInAppBar)
 
-      if (inputSearchInAppBar.length === 0) {
-        setFilteredPosts(allPosts)
-        return
-      }
-
-      const searchData = allPosts.filter(post => {
-        const postText = post.text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-        const postTitle = post.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-        const inputSearchLowerCase = inputSearchInAppBar.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-
-        return postText.includes(inputSearchLowerCase) || postTitle.includes(inputSearchLowerCase)
-      })
- 
-      setFilteredPosts(searchData)
-    }
   }
 
   render() {
@@ -69,7 +57,6 @@ class Appbar extends Component {
         inputProps={{ 'aria-label': 'search' }}
         value={inputSearchInAppBar}
         onChange={this.onChangeInputSearch}
-        onKeyDown={this.onPressEnter}
       />
     </DivSearch>
 
@@ -101,10 +88,10 @@ class Appbar extends Component {
 
       case "profile":
         buttonsPersonalized =
-            <div>
-              {buttonFeed}
-              {buttonLogout}
-            </div>
+          <div>
+            {buttonFeed}
+            {buttonLogout}
+          </div>
         break;
 
       case "register":
@@ -134,6 +121,8 @@ class Appbar extends Component {
   }
 }
 
+const user = JSON.parse(localStorage.getItem('user'))
+
 const mapStateToProps = (state) => ({
   allPosts: state.posts.allPosts,
 })
@@ -142,7 +131,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     goToFeed: () => dispatch(push(routes.feed)),
     goToLogin: () => dispatch(push(routes.root)),
-    goToProfile: () => dispatch(push(routes.profile)),
+    goToProfile: () => dispatch(push(`/posts/profile/${user.username}`)),
     setFilteredPosts: (posts) => dispatch(setFilteredPosts(posts)),
     setInputSearch: (inputData) => dispatch(setInputSearch(inputData))
   }

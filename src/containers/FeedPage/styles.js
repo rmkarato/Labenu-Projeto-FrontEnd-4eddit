@@ -6,8 +6,7 @@ export const FeedWrapper = styled.div`
   margin: 2rem auto;
   width: 40vw;
   min-height: 80vh;
-  justify-content: center;
-  
+   
   @media screen and (max-device-width: 1200px){
   width: 90vw;
   }

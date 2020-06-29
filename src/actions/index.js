@@ -2,7 +2,6 @@ import axios from 'axios'
 import { routes } from '../containers/Router'
 import { push } from "connected-react-router";
 
-// const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/fourEddit"
 const baseUrl = "https://us-central1-future-apis.cloudfunctions.net/fourEddit"
 const getToken = () => localStorage.getItem("token")
 
@@ -97,7 +96,7 @@ export const createPost = (createPostData) => async (dispatch) => {
     }
 }
 
-export const vote = (id, direction) => async (dispatch, getState) => {
+export const vote = (id, direction) => async (dispatch) => {
     try {
         await axios.put(`${baseUrl}/posts/${id}/vote`,
             { direction: direction },
@@ -108,17 +107,13 @@ export const vote = (id, direction) => async (dispatch, getState) => {
             }
         )
         dispatch(getPosts())
-        // const state = getState();
-        // if(state.posts.postId){
-        //     dispatch(getPostsDetail(state.posts.postId))
-        // }
     } catch (error) {
         console.error(error.message)
         alert("Não foi possível votar no post.")
     }
 }
 
-export const voteInDetail = (id, direction) => async (dispatch, getState) => {
+export const voteInDetail = (id, direction) => async (dispatch) => {
     try {
         await axios.put(`${baseUrl}/posts/${id}/vote`,
             { direction: direction },
@@ -144,7 +139,8 @@ const setPostId = (id) => ({
 
 export const getPostId = (postId) => async (dispatch) => {
     dispatch(setPostId(postId))
-    dispatch(push(routes.detail))
+    dispatch(push(`/posts/detail/${postId}`))
+
 }
 
 

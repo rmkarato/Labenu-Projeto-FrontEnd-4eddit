@@ -9,7 +9,6 @@ import Loading from '../../components/Loading'
 
 import { ProfileWrapper } from './styles'
 import ButtonScrollToTop from "../../components/ButtonScrollToTop";
-import SharedSocialMedia from "../../components/SharedSocialMedia";
 
 class ProfilePage extends Component {
   constructor(props) {
@@ -32,11 +31,8 @@ class ProfilePage extends Component {
       return a.createdAt < b.createdAt ? 1 : a.createdAt > b.createdAt ? -1 : 0
     })
 
-    const user = localStorage.getItem('user')
-    const newUser = JSON.parse(user)
-    const myPosts = ordenedPosts.filter(post => post.username === newUser.username)
-
-    const shareUrl = "http://4eddit-sagan3.surge.sh/"
+    const user = JSON.parse(localStorage.getItem('user'))
+    const myPosts = ordenedPosts.filter(post => post.username === user.username)
 
     return (
       <>
@@ -47,8 +43,6 @@ class ProfilePage extends Component {
         <ProfileWrapper>
 
           <CreatePost />
-
-          <SharedSocialMedia url={shareUrl}/>
 
           { myPosts.length > 0 
             ? myPosts.map(post => <Post post={post} key={post.id} />)

@@ -10,7 +10,7 @@ export default class Loading extends React.Component{
         }
     }
 
-    handleClose = () => { // a pessoa pode fechar se algo der errado, ou se não gosta de ver o loading
+    handleClose = () => {
         this.setState({open: false});
      };
 
@@ -23,20 +23,3 @@ export default class Loading extends React.Component{
         )
     }
 }
-
-// USANDO HOOKS - deixei comentado para fins didáticos
-// import React, { useState } from 'react'
-// import { CircularProgress } from "@material-ui/core";
-// import { BackdropStyled } from './styles'
-
-// export default function Loading(props) {
-//     const [open, setOpen] = useState(props.open)
-
-//     const handleClose = () => { 
-//         setOpen(false);
-//     };
-
-//     return (<BackdropStyled open={open} onClick={handleClose}>
-//             <CircularProgress />
-//         </BackdropStyled>)
-// }

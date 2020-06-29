@@ -31,8 +31,8 @@ function Post(props) {
     }
 
     const { post } = props
-    const date = turnsDate(post.createdAt)
-    const newAvatar = post.username.slice(0, 1).toUpperCase()
+    const date = turnsDate(post?.createdAt)
+    const newAvatar = post?.username?.slice(0, 1).toUpperCase()
 
     return (
         <CardPost>
@@ -41,12 +41,12 @@ function Post(props) {
                 <CardHeader
                     title={
                         <Typography variant="h5" component="p">
-                            {post.title}
+                            {post?.title}
                         </Typography>
                     }
                     subheader={
                         <Typography>
-                            {post.username} <Date>{date}</Date>
+                            {post?.username} <Date>{date}</Date>
                         </Typography>
                     }
                     avatar={
@@ -57,11 +57,11 @@ function Post(props) {
                 />
                 <CardContent>
                     {/* Fazendo uma brincadeirinha no front - sabemos que só vai funcionar no nosso site ;) */}
-                    {post.text.includes('.jpeg') || post.text.includes('.png') || post.text.includes('.gif') ?
-                        <Image src={post.text} />
+                    {post?.text?.includes('.jpeg') || post?.text?.includes('.png') || post?.text?.includes('.gif') ?
+                        <Image src={post?.text} />
                         :
                         <Typography variant="body1" component="p">
-                            {post.text}
+                            {post?.text}
                         </Typography>
                     }
                 </CardContent>
@@ -70,34 +70,34 @@ function Post(props) {
             <PostFooter>
                 <VotesWrapper>
 
-                    {post.userVoteDirection === 1 ?
-                        <IconButton onClick={() => onClickClearVote(post.id)}>
-                            <ArrowUpwardRounded />
+                    {post?.userVoteDirection === 1 ?
+                        <IconButton onClick={() => onClickClearVote(post?.id)}>
+                            <ArrowUpwardRounded color="primary"/>
                         </IconButton>
                         :
-                        <IconButton onClick={() => onclickUp(post.id)}>
-                            <ArrowUpwardRounded color="primary" />
+                        <IconButton onClick={() => onclickUp(post?.id)}>
+                            <ArrowUpwardRounded  />
                         </IconButton>
                     }
 
                     <Typography>
-                        {post.votesCount}
+                        {post?.votesCount}
                     </Typography>
 
-                    {post.userVoteDirection === -1 ?
-                        <IconButton onClick={() => onClickClearVote(post.id)}>
-                            <ArrowDownwardRounded />
+                    {post?.userVoteDirection === -1 ?
+                        <IconButton onClick={() => onClickClearVote(post?.id)}>
+                            <ArrowDownwardRounded color="secondary"/>
                         </IconButton>
                         :
-                        <IconButton onClick={() => onclickDown(post.id)}>
-                            <ArrowDownwardRounded color="secondary" />
+                        <IconButton onClick={() => onclickDown(post?.id)}>
+                            <ArrowDownwardRounded  />
                         </IconButton>
                     }
 
                 </VotesWrapper>
 
-                <Comments onClick={() => handlePostClicked(post.id)}>
-                    {post.commentsCount} {post.commentsCount === 1 ? 'comentário' : 'comentários'}
+                <Comments onClick={() => handlePostClicked(post?.id)}>
+                    {post?.commentsCount} {post?.commentsCount === 1 ? 'comentário' : 'comentários'}
                 </Comments>
             </PostFooter>
 

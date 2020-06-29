@@ -13,8 +13,8 @@ export const routes = {
   root: "/",
   register: "/register",
   feed: "/posts/feed",
-  detail: "/posts/detail",
-  profile: "/posts/profile"
+  detail: "/posts/detail/:id",
+  profile: "/posts/profile/:username"
 };
 
 function Router(props) {

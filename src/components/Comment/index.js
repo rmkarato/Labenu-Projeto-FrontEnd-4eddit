@@ -58,11 +58,11 @@ function Comment(props) {
 
                 {comment.userVoteDirection === 1 ?
                     <IconButton onClick={() => onClickClearVoteComment(comment.id)}>
-                        <ArrowUpwardRounded />
+                        <ArrowUpwardRounded color="primary"/>
                     </IconButton>
                     :
                     <IconButton onClick={() => onClickCommentUp(comment.id)}>
-                        <ArrowUpwardRounded color="primary" />
+                        <ArrowUpwardRounded />
                     </IconButton>
                 }
 
@@ -72,11 +72,11 @@ function Comment(props) {
 
                 {comment.userVoteDirection === -1 ?
                     <IconButton onClick={() => onClickClearVoteComment(comment.id)}>
-                        <ArrowDownwardRounded />
+                        <ArrowDownwardRounded color="secondary"/>
                     </IconButton>
                     :
                     <IconButton onClick={() => onClickCommentDown(comment.id)}>
-                        <ArrowDownwardRounded color="secondary" />
+                        <ArrowDownwardRounded />
                     </IconButton>
                 }
 

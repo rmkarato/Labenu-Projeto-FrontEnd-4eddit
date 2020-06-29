@@ -9,8 +9,7 @@ import Loading from '../../components/Loading/'
 import ButtonScrollToTop from "../../components/ButtonScrollToTop";
 
 import { FeedWrapper } from './styles'
-import SharedSocialMedia from "../../components/SharedSocialMedia";
-
+import { Typography } from "@material-ui/core";
 
 class FeedPage extends Component {
 
@@ -27,33 +26,28 @@ class FeedPage extends Component {
 
   render() {
     const { filteredPosts, inputSearch } = this.props
-
     const newAllPosts = [...filteredPosts]
     const ordenedPosts = newAllPosts.sort((a, b) => {
       return a.createdAt < b.createdAt ? 1 : a.createdAt > b.createdAt ? -1 : 0
     })
 
-    const shareUrl = "http://4eddit-sagan3.surge.sh/"
-
     return (
       <>
         <Appbar page={"feed"} />
-
         <ButtonScrollToTop/>
-
         <FeedWrapper>
-
-          {/* Tá pesquisando? Não inventa de criar post... nem o facebook permite né rs */}
-          {inputSearch.length === 0 && <CreatePost />}
-
-          <SharedSocialMedia url={shareUrl}/>
-
+          {inputSearch.length <= 1 &&  <CreatePost />}
           {ordenedPosts.length > 0 ?
             ordenedPosts.map(post => <Post post={post} key={post.id} />)
             :
-            <Loading open={true} />
+            inputSearch.length === 0 
+              ? <Loading open={true} />
+              : <div>
+                <Typography variant="subtitle1" align="center">
+                  Não encontramos :(
+                </Typography>
+              </div>
           }
-
         </FeedWrapper>
       </>
     );

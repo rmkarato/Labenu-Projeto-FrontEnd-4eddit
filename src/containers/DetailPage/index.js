@@ -13,27 +13,26 @@ import PostInDetail from "../../components/PostInDetail";
 import CreateComment from "../../components/CreateComment";
 import Comment from "../../components/Comment";
 import ButtonScrollToTop from "../../components/ButtonScrollToTop";
+import SharedSocialMedia from "../../components/SharedSocialMedia";
 
 class DetailPage extends Component {
 
   componentDidMount = () => {
-    const { getPostsDetail, postId, goToFeed } = this.props
-    if(postId === null) { // pessoa logada acessa rota
-      goToFeed()
-      return
-    }
-    getPostsDetail(postId)
+    const { getPostsDetail, postId, goToFeed } = this.props   
+    const postIdInUrl = window.location.pathname.substr(14, 20)
+    
+    if(postId === null && !postIdInUrl) { goToFeed() }
+    else if(postId === null && postIdInUrl){ getPostsDetail(postIdInUrl) }
+    else { getPostsDetail(postId) }
   }
 
-  componentWillUnmount = () => {
-      this.props.setPostDetail(null)
-  }  
+  componentWillUnmount = () => { this.props.setPostDetail(null) }  
 
   render() {
     const { postDetail } = this.props
 
     let newComments = []
-    if (postDetail !== null) { // null - pessoa logada, acessa a rota diretamente
+    if (postDetail !== null) { 
       newComments = [...postDetail.comments]
     }
 
@@ -41,6 +40,8 @@ class DetailPage extends Component {
       return a.createdAt < b.createdAt ? -1 : a.createdAt > b.createdAt ? 1 : 0
     })
 
+    const thisUrl = window.location.href
+    
     return (
       <>
         <Appbar page={"detail"} />
@@ -49,6 +50,7 @@ class DetailPage extends Component {
         { postDetail
 
           ? (<DetailWrapper>
+            <SharedSocialMedia url={thisUrl}/>
 
             <PostInDetail post={postDetail} />
 
@@ -60,7 +62,6 @@ class DetailPage extends Component {
             }
 
           </DetailWrapper>)
-
 
           : (<Loading open={true} />)
 

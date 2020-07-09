@@ -6,7 +6,7 @@ Desenvolvimento de aplicações completas, incluindo frontend Web com React e ba
 
 ## Projeto: 4eddit
 
-:dash: [Deploy da aplicação](http://4eddit-sagan3.surge.sh/)
+:dash: [Deploy da aplicação](http://4eddit-rosana.surge.sh/)
 
 [Documentação da API](https://documenter.getpostman.com/view/674905/SzYXXKEE?version=latest#08adf102-4d87-4f70-9dc3-b3c321b29739)
 

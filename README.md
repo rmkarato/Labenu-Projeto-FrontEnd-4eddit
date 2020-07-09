@@ -183,3 +183,9 @@ Copyright :copyright: 2020 - 4eddit
 - [Github](https://github.com/rosanarezende)
 - [Email](rezende_rosana@hotmail.com)
 
+<br>
+
+## Desenvolvido em parceria com
+
+[<img src="https://avatars3.githubusercontent.com/u/59846340?s=460&u=cb097d69eba8545f1d4ac03b754089500d52e9bf&v=4" width=115 > <br> <sub> Eloisa Fagundes </sub>](https://github.com/EloisaFagundes) |
+| :---: | 

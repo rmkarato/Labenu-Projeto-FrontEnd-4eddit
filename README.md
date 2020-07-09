@@ -6,9 +6,9 @@ Desenvolvimento de aplicações completas, incluindo frontend Web com React e ba
 
 ## Projeto: 4eddit
 
-Site do projeto: [link](http://4eddit-sagan3.surge.sh/)
+:dash: [Deploy da aplicação](http://4eddit-sagan3.surge.sh/)
 
-Documentação da API: [link](https://documenter.getpostman.com/view/674905/SzYXXKEE?version=latest#08adf102-4d87-4f70-9dc3-b3c321b29739)
+[Documentação da API](https://documenter.getpostman.com/view/674905/SzYXXKEE?version=latest#08adf102-4d87-4f70-9dc3-b3c321b29739)
 
 
 **Versão Web**
@@ -24,6 +24,19 @@ Documentação da API: [link](https://documenter.getpostman.com/view/674905/SzYX
 
 <br>
 
+## Principais tecnologias/ferramentas utilizadas
+
+1. React
+2. Redux
+3. Redux-Thunk: Integração do redux com requisições assíncronas.
+4. Autenticação
+5. Estilização Avançada com CSS
+6. Uso de bibliotecas de UI (MaterialUI)
+7. Aplicações com múltiplas rotas utilizando React Router
+8. Formulários com Validação
+9. Responsividade e adaptação de aplicação web para front.
+<br><br>
+
 ## Escopo
 
 Iremos implementar um rede social realmente funcional (com cadastro, login, posts, likes e comentários) baseada no **[reddit.com](https://reddit.com).**
@@ -37,7 +50,7 @@ A rede social terá 4 páginas:
 ### Página de login
 
 <p align="center">
-<img  height='400' src='https://user-images.githubusercontent.com/3521896/77802249-3ada3280-7059-11ea-9da7-5762c6daf97d.png'>
+<img  height='250' src='https://user-images.githubusercontent.com/3521896/77802249-3ada3280-7059-11ea-9da7-5762c6daf97d.png'>
 </p>
 
 A página de login possui dois campos de texto: email e senha. Comportamento esperado: ao fazer o login, o usuário deverá ser redirecionado para a página de feed.
@@ -49,7 +62,7 @@ A página possui também um botão "Cadastrar", que leva o usuário para a pági
 ### Página de cadastro
 
 <p align="center">
-<img  height='400' src='https://user-images.githubusercontent.com/3521896/77802253-3ca3f600-7059-11ea-8bc9-e43db687e62c.png'>
+<img  height='250' src='https://user-images.githubusercontent.com/3521896/77802253-3ca3f600-7059-11ea-8bc9-e43db687e62c.png'>
 </p>
 
 A página de cadastro possui 3 campos: nome de usuário, email e senha. O endpoint de cadastro retornará as mesmas informações do endpoint de login. Portanto, após cadastrar, o usuário deverá ser redirecionado para a página de feed, já estando logado (ou seja, com o token salvo no LocalStorage).
@@ -59,7 +72,7 @@ A página de cadastro possui 3 campos: nome de usuário, email e senha. O endpoi
 ### Página de feed (lista de posts)
 
 <p align="center">
-<img  height='400' src='https://user-images.githubusercontent.com/3521896/77802257-3e6db980-7059-11ea-9978-cc4612e444a1.png'>
+<img  height='250' src='https://user-images.githubusercontent.com/3521896/77802257-3e6db980-7059-11ea-9978-cc4612e444a1.png'>
 </p>
 
 A página de feed deverá mostrar todos os posts, além de um formulário para a criação de post. O formulário possui apenas o campo de texto. Cada post mostrará o nome de usuário que postou, o texto do post, o número de votos (positivo ou negativo) e o número de comentários. Caso o usuário tenha votado positiva ou negativamente, isso deverá estar indicado. Todas essa informações serão fornecidas pela API.
@@ -75,13 +88,14 @@ Essa página só pode ser acessada por um usuário logado. Caso o usuário não 
 ### Página de post
 
 <p align="center">
-<img  height='400' src='https://user-images.githubusercontent.com/3521896/77802261-40377d00-7059-11ea-8f65-2b305bf5e6f8.png'>
+<img  height='250' src='https://user-images.githubusercontent.com/3521896/77802261-40377d00-7059-11ea-8f65-2b305bf5e6f8.png'>
 </p>
 
 A página de um post mostrará o mesmo card de post da página de feed, com o usuário, texto, curtidas e número de comentários. Abaixo, terá um formulário para criação de comentários e os cards de comentários. A estrutura é muito similar à do post, mas comentários não possuem outros comentários dentro deles. A lógica de votos é a mesma do post.
 
 Essa página só pode ser acessada por um usuário logado. Caso o usuário não esteja logado, deverá ser redirecionado para a página de login.
 
+<br><br>
 
 ## Desafios
 
@@ -96,3 +110,76 @@ Essa página só pode ser acessada por um usuário logado. Caso o usuário não 
 5. Implementar loading em todas as páginas que esperam dados da API (lista de posts, detalhe de post, criação de post)
 
 _OBS_: Todos os desafios foram implementados. 
+
+<br><br>
+
+## Como rodar a aplicação
+
+No terminal, clone o projeto:
+```
+git clone 
+```
+
+Entre na pasta do projeto:
+```
+cd Labenu-Projeto-FrontEnd-4eddit
+```
+
+Instale as dependências:
+```
+npm install
+```
+
+Execute a aplicação:
+```
+npm start 
+```
+
+<br>
+
+## Contribuição
+
+Contribuições com o projeto são muito apreciadas. Para isso:
+
+- Faça um Fork do projeto
+
+- Crie uma branch para sua feature
+```
+git checkout -b feature
+```
+
+- Adicione as mudanças
+```
+git add . 
+```
+
+- _Commit_ as mudanças 
+```
+git commit -m 'Adicionando a feature X'
+```
+
+- Faça o push da branch 
+```
+git push origin feature
+```
+
+- Abra um Pull Request
+
+<br>
+
+## Licença
+
+The [MIT License]() (MIT)
+
+Copyright :copyright: 2020 - 4eddit
+
+<br>
+
+## Canais de comunicação
+
+**Rosana-Rezende**: *Desenvolvedora web full-stack | Advogada | MBA em gestão: inteligência de negócios digitais - FGV*
+
+- [Linkedin](https://www.linkedin.com/in/rosanarezende/)
+- [Github](https://github.com/rosanarezende)
+- [Email](rezende_rosana@hotmail.com)
+
